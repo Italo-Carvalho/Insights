@@ -1,5 +1,6 @@
 from pathlib import Path
 from datetime import timedelta
+import sys, os
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -29,6 +30,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # internal
     'insights.apps.InsightsConfig',
+    'web',
     # external
     'corsheaders',
     'django_extensions',
@@ -83,7 +85,7 @@ ROOT_URLCONF = 'core.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -113,6 +115,9 @@ DATABASES = {
     }
 }
 
+
+
+DATA_UPLOAD_MAX_NUMBER_FIELDS = 10500 # config apenas em desenvolvimento
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -159,5 +164,9 @@ AUTH_USER_MODEL = 'insights.CustomUser'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = "/static/"
+STATICFILES_DIRS = [BASE_DIR / "static"]
 STATIC_ROOT = BASE_DIR / "staticfiles"
+
+MEDIA_URL = "/media/"
+MEDIA_ROOT = BASE_DIR / "media"
