@@ -7,10 +7,10 @@ from django.conf import settings
 def django_db_setup():
     settings.DATABASES['default'] = {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "insights",
-        "USER": "rpdb",
-        "PASSWORD": "password",
-        "HOST": "localhost",
+        "NAME": "postgres",
+        "USER": "postgres",
+        "PASSWORD": "postgres",
+        "HOST": "db",
         "PORT": 5432,
     }
 

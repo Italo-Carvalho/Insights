@@ -16,7 +16,7 @@ class TagsViewsetsRUD(generics.RetrieveUpdateDestroyAPIView):
 
 
 class CardViewsetsLC(generics.ListCreateAPIView):
-    queryset = models.Card.objects.all()
+    queryset = models.Card.objects.all().prefetch_related('tags')
     permission_classes = (IsAuthenticated,)
     serializer_class = serializes.CardSerializer
     filter_backends = (DjangoFilterBackend,)

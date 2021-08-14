@@ -10,15 +10,31 @@
         <!-- Bootstrap CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
-        {% comment %} <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}"> {% endcomment %}
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
-
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        
         {% block head %}{% endblock head %}
     </head>
 
     <body>
+<style>
+body{
+    background-color: #F4F4F4;
+}
+.banner{
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+hr {
 
+  color:#ED4D77;
+  width: 100px;
+  text-align: center;
+  margin: 0 auto;
+ opacity: 100%;
+}
+</style>
 
 {% include 'navbar.html' %}
 

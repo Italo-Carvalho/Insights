@@ -9,6 +9,7 @@ class TagsSerializer(serializers.ModelSerializer):
         fields = ('id', 'name')
 
 class CardSerializer(serializers.ModelSerializer):
+    tags = TagsSerializer(read_only=True, many=True)
     class Meta:
         model = Card
         fields = ('id', 'texto', 'data_criacao', 'data_modificacao', 'tags')

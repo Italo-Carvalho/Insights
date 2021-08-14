@@ -55,6 +55,7 @@ SIMPLE_JWT = {
 }
 
 SWAGGER_SETTINGS = {
+   'VALIDATOR_URL' : None,
    'SECURITY_DEFINITIONS': {
       'Auth Token | Bearer (JWT)': {
             'type': 'apiKey',
@@ -63,6 +64,7 @@ SWAGGER_SETTINGS = {
       }
    }
 }
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -107,10 +109,10 @@ WSGI_APPLICATION = 'core.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "insights",
-        "USER": "rpdb",
-        "PASSWORD": "password",
-        "HOST": "localhost",
+        "NAME": "postgres",
+        "USER": "postgres",
+        "PASSWORD": "postgres",
+        "HOST": "db",
         "PORT": 5432,
     }
 }
