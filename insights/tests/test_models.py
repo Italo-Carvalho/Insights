@@ -1,5 +1,5 @@
 import pytest
-from ..models import CustomUser, Tags, Card
+from insights.models import CustomUser, Tags, Card
 from django.test import TestCase
 
 pytestmark = pytest.mark.django_db

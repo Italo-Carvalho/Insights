@@ -32,14 +32,12 @@
 # 🐋 Start Docker
 ### Vai construir e iniciar a aplicação
 
-```docker-compose up --build```
+```docker-compose up --d --build```
 
 - Nos sistemas que com base em Debian, caso não consiga conectar use o comando ```sudo``` antes de cada comando.
-    - Ex: ```sudo docker-compose up --build```
+    - Ex: ```sudo docker-compose up --d --build```
     
 
-- Após isso não precisara do ```--build```
-    - Apenas: ```docker-compose up```
 - Por padrão no ```--build``` o docker já migra o banco de dados e cria um usuário no db.
     - Email: test@test.com | Senha: test123 
 
