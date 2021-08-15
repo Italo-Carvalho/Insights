@@ -17,7 +17,7 @@ pytestmark = pytest.mark.django_db
 #         return False
 
 
-class ClosepollTest(TestCase):
+class CommandTest(TestCase):
     def test_load_csv_validate_command_output(self):
 
         call_command("load_csv_validate")

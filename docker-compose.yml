@@ -10,7 +10,16 @@ services:
       - 8000:8000
     depends_on:
       - db
+      - db_test
   db:
+    image: postgres:13
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+
+  db_test:
     image: postgres:13
     environment:
       - POSTGRES_USER=postgres

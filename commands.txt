@@ -1,2 +1,4 @@
 python manage.py sqlsequencereset insights | python manage.py dbshell
 python3 manage.py shell_plus
+sudo docker-compose exec web python manage.py test
+sudo docker-compose exec web coverage run --source='.' manage.py test
