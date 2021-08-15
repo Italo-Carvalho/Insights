@@ -3,12 +3,14 @@ import pandas as pd
 from insights.models import Tags, Card
 from rich.console import Console
 import time
+
 console = Console()
+
 
 class Command(BaseCommand):
     def handle(self, *args, **kwargs):
         inicio = time.time()
-        df = pd.read_csv('cards.csv', names=['text', 'tag'], header=None)
+        df = pd.read_csv("cards.csv", names=["text", "tag"], header=None)
         tags = df.tag.to_list()
         cards_created = 0
         tags_created = 0
@@ -16,7 +18,6 @@ class Command(BaseCommand):
 
         for text, tag in zip(df.text, tags):
             tags = list(str(tag).split(";"))
-            
 
             if not Card.objects.filter(texto=text).count():
                 tags = list(str(tag).split(";"))
@@ -26,7 +27,7 @@ class Command(BaseCommand):
                 cards_created = cards_created + 1
 
                 for tag in tags:
-                    if tag != 'nan':
+                    if tag != "nan":
                         dtag = Tags.objects.filter(name=tag).last()
                         if dtag:
                             card.tags.add(dtag)
@@ -43,9 +44,11 @@ class Command(BaseCommand):
         style3 = "bold white on #b52a4a"
         style4 = "bold white on #060a8a"
         console.print("Dados diferentes cadastrados", style=style, justify="center")
-        console.print(f"🎴  {cards_created} - Novos card's criados\n🏷️  {tags_created} - Novas tag's criadas \n🤝 {cards_tags_relations} - Novos relacionamentos entre Card e Tags feitos", style=style2, justify="center")
-        console.print("🕒 %.2f Tempo de execução" %tempo_total, style=style4, justify="center")
-
-
-
-
+        console.print(
+            f"🎴  {cards_created} - Novos card's criados\n🏷️  {tags_created} - Novas tag's criadas \n🤝 {cards_tags_relations} - Novos relacionamentos entre Card e Tags feitos",
+            style=style2,
+            justify="center",
+        )
+        console.print(
+            "🕒 %.2f Tempo de execução" % tempo_total, style=style4, justify="center"
+        )

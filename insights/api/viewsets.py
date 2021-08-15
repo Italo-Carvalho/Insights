@@ -4,10 +4,12 @@ from .. import models
 from rest_framework import generics
 from django_filters.rest_framework import DjangoFilterBackend
 
+
 class TagsViewsetsC(generics.CreateAPIView):
     queryset = models.Tags.objects.all()
     permission_classes = (IsAuthenticated,)
     serializer_class = serializes.TagsSerializer
+
 
 class TagsViewsetsRUD(generics.RetrieveUpdateDestroyAPIView):
     queryset = models.Tags.objects.all()
@@ -16,11 +18,12 @@ class TagsViewsetsRUD(generics.RetrieveUpdateDestroyAPIView):
 
 
 class CardViewsetsLC(generics.ListCreateAPIView):
-    queryset = models.Card.objects.all().prefetch_related('tags')
+    queryset = models.Card.objects.all().prefetch_related("tags")
     permission_classes = (IsAuthenticated,)
     serializer_class = serializes.CardSerializer
     filter_backends = (DjangoFilterBackend,)
-    filterset_fields = ('tags',)
+    filterset_fields = ("tags",)
+
 
 class CardViewsetsRUD(generics.RetrieveUpdateDestroyAPIView):
     queryset = models.Card.objects.all()

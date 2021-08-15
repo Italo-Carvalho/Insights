@@ -8,6 +8,7 @@ from .test_api import api_auth_user
 
 pytestmark = pytest.mark.django_db
 
+
 class UserRegistrationAPIViewTestCase(APITestCase):
     url = reverse("api:user")
 
@@ -22,29 +23,21 @@ class UserRegistrationAPIViewTestCase(APITestCase):
 
     def test_user_registration(self):
 
-        user_data = {
-            "email": "test@test.com",
-            "password": "passw0rd"
-        }
+        user_data = {"email": "test@test.com", "password": "passw0rd"}
         response = self.client.post(self.url, user_data)
         self.assertEqual(201, response.status_code)
         self.assertTrue("email" in json.loads(response.content))
 
     def test_unique_email_validation(self):
 
-        user_data_1 = {
-            "email": "test@test.com",
-            "password": "passw0rd"
-        }
+        user_data_1 = {"email": "test@test.com", "password": "passw0rd"}
         response = self.client.post(self.url, user_data_1)
         self.assertEqual(201, response.status_code)
 
-        user_data_2 = {
-            "email": "test@test.com",
-            "password": "passw0rd"
-        }
+        user_data_2 = {"email": "test@test.com", "password": "passw0rd"}
         response = self.client.post(self.url, user_data_2)
         self.assertEqual(400, response.status_code)
+
 
 class UserJwtLoginTextCase(APITestCase):
     url = reverse("api:token_create")
@@ -59,10 +52,14 @@ class UserJwtLoginTextCase(APITestCase):
         self.assertEqual(400, response.status_code)
 
     def test_authentication_with_wrong_password(self):
-        response = self.client.post(self.url, {"email": self.email, "password": "passuord"})
+        response = self.client.post(
+            self.url, {"email": self.email, "password": "passuord"}
+        )
         self.assertEqual(401, response.status_code)
 
     def test_authentication_with_valid_data(self):
-        response = self.client.post(self.url, {"email": self.email, "password": self.password})
+        response = self.client.post(
+            self.url, {"email": self.email, "password": self.password}
+        )
         self.assertEqual(200, response.status_code)
         self.assertTrue("access" in json.loads(response.content))

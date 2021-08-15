@@ -9,9 +9,9 @@ RUN python -m pip install --upgrade pip
 COPY requirements.txt .
 RUN pip install -r requirements.txt
 
-ADD docker-entrypoint.sh /docker-entrypoint.sh
-RUN chmod a+x /docker-entrypoint.sh
-ENTRYPOINT ["/docker-entrypoint.sh"]
+ADD django-setup.sh /django-setup.sh
+RUN chmod a+x /django-setup.sh
+CMD [./django-setup.sh]
 
 
 

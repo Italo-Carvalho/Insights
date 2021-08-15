@@ -4,9 +4,11 @@ from ..models import CustomUser, Tags, Card
 
 pytestmark = pytest.mark.django_db
 
+
 def test_create_customuser():
-    user = CustomUser.objects.create(email='pytestdjango@django.com',
-     password='passw0rd')
+    user = CustomUser.objects.create(
+        email="pytestdjango@django.com", password="passw0rd"
+    )
 
     assert user.email == "pytestdjango@django.com"
     assert user.__str__() == "pytestdjango@django.com"
@@ -24,25 +26,37 @@ def test_create_superuser():
     assert user.is_staff
     assert user.is_superuser
 
+
 def test_create_user_errors():
     with pytest.raises(ValueError) as user_create:
-       CustomUser.objects.create_superuser(email='',password="passw0rd")
+        CustomUser.objects.create_superuser(email="", password="passw0rd")
 
     with pytest.raises(ValueError) as super_user_create_staff:
-       CustomUser.objects.create_superuser(email='test@test.com',password="passw0rd", is_staff=False)
-       
-    with pytest.raises(ValueError) as super_user_create_superuser:
-       CustomUser.objects.create_superuser(email='test@test.com',password="passw0rd", is_superuser=False)
+        CustomUser.objects.create_superuser(
+            email="test@test.com", password="passw0rd", is_staff=False
+        )
 
-    assert user_create.value.args[0] == 'O e-mail deve ser definido'
-    assert super_user_create_staff.value.args[0] == 'O superusuário deve está is_staff=True.'
-    assert super_user_create_superuser.value.args[0] == 'O superusuário deve está is_superuser=True.'
+    with pytest.raises(ValueError) as super_user_create_superuser:
+        CustomUser.objects.create_superuser(
+            email="test@test.com", password="passw0rd", is_superuser=False
+        )
+
+    assert user_create.value.args[0] == "O e-mail deve ser definido"
+    assert (
+        super_user_create_staff.value.args[0]
+        == "O superusuário deve está is_staff=True."
+    )
+    assert (
+        super_user_create_superuser.value.args[0]
+        == "O superusuário deve está is_superuser=True."
+    )
 
 
 def test_create_tag():
-    tag = Tags.objects.create(name='test')
-    assert tag.__str__() == 'test'
+    tag = Tags.objects.create(name="test")
+    assert tag.__str__() == "test"
+
 
 def test_create_card():
-    card = Card.objects.create(texto='test')
-    assert card.__str__() == 'test'
+    card = Card.objects.create(texto="test")
+    assert card.__str__() == "test"

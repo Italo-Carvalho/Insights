@@ -20,13 +20,9 @@ pytestmark = pytest.mark.django_db
 class ClosepollTest(TestCase):
     def test_load_csv_validate_command_output(self):
 
-        call_command('load_csv_validate')
+        call_command("load_csv_validate")
         self.assertEqual(True, Card.objects.all().exists())
-
-
 
     def test_load_csv_command_output(self):
-        call_command('load_csv')
+        call_command("load_csv")
         self.assertEqual(True, Card.objects.all().exists())
-
-

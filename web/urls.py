@@ -3,7 +3,4 @@ from .views import Home, NewCard
 
 app_name = "web"
 
-urlpatterns = [ 
-    path('', Home, name='home'),
-    path('new/', NewCard, name='new_card')
-]
+urlpatterns = [path("", Home, name="home"), path("new/", NewCard, name="new_card")]
