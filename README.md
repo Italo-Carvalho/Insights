@@ -19,7 +19,7 @@
 <p align="center">
   <a href="#user-content--start-docker">🐋 Start Docker</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#user-content--api">💻 Api</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#user-content-endpoints-e-seus-resultados">🎯 Endpoints</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#user-content--endpoints-e-seus-resultados">🎯 Endpoints</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#user-content--cli-para-importação-dos-cards">👨‍💻 CLI Importação</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#user-content--rodar-tests">🧪 Tests</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#user-content--front-end">🌐 Front-end</a>
