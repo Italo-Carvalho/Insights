@@ -1,6 +1,5 @@
-from django.db.models import fields
 from rest_framework import serializers
-from ..models import Tags, Card, CustomUser
+from insights.models import Tags, Card, CustomUser
 
 
 class TagsSerializer(serializers.ModelSerializer):

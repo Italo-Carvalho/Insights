@@ -1,8 +1,8 @@
 import json
 from django.urls import reverse
 from rest_framework.test import APITestCase, APIClient
-from ..models import Tags, Card, CustomUser
-from ..api.serializes import TagsSerializer, CardSerializer, CardSerializerList
+from insights.models import Tags, Card, CustomUser
+from insights.api.serializes import TagsSerializer, CardSerializer, CardSerializerList
 from rest_framework_simplejwt.tokens import RefreshToken
 import pytest
 

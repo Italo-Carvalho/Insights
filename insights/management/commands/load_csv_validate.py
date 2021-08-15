@@ -41,7 +41,6 @@ class Command(BaseCommand):
         tempo_total = fim - inicio
         style = "bold white on #7100ad"
         style2 = "bold white on black"
-        style3 = "bold white on #b52a4a"
         style4 = "bold white on #060a8a"
         console.print("Dados diferentes cadastrados", style=style, justify="center")
         console.print(

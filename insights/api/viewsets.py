@@ -1,6 +1,6 @@
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from . import serializes
-from .. import models
+from insights import models
 from rest_framework import generics
 from django_filters.rest_framework import DjangoFilterBackend
 

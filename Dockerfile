@@ -11,7 +11,8 @@ RUN pip install -r requirements.txt
 
 ADD django-setup.sh /django-setup.sh
 RUN chmod a+x /django-setup.sh
-CMD [./django-setup.sh]
+
+ENTRYPOINT ["/django-setup.sh"]
 
 
 

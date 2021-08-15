@@ -1,10 +1,9 @@
 import json
 from django.urls import reverse
-from rest_framework.test import APITestCase, APIClient
-from ..models import CustomUser
+from rest_framework.test import APITestCase
+from insights.models import CustomUser
 from rest_framework_simplejwt.tokens import RefreshToken
 import pytest
-from .test_api import api_auth_user
 
 pytestmark = pytest.mark.django_db
 
