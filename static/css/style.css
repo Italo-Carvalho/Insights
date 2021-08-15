@@ -1,3 +1,7 @@
+body{
+    background-color: #F4F4F4;
+}
+
 img.avatar{
     border-radius: 100px;
 }
@@ -8,4 +12,95 @@ img.avatar{
 
 }
 
+.banner{
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+hr {
 
+  color:#ED4D77;
+  width: 100px;
+  text-align: center;
+  margin: 0 auto;
+ opacity: 100%;
+}
+.navbar.navbar-expand-md{
+    flex-wrap: nowrap;
+    justify-content:
+    flex-start;
+}
+
+.center-div{
+    position: absolute;width: auto;left: 50%;transform: translateX(-50%);text-align: center;
+}
+.navbar-collapse{
+    display: flex!important;flex-basis: auto!important;
+}
+.feed-text{
+    color: #ED4D77;font-weight: 500;font-style: italic;
+}
+.card-div-id{
+    padding: 15px;text-align: center;max-width: 80%;margin: 0 auto;background-color: #ffff;border-radius: 8px;box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+.card-text-c{
+    font-size: 14px;font-weight: 500;line-height: 1.143;
+}
+.tag-btn{
+    color: #ED4D77;border-color: #ED4D77;height: 32px;font-size: 13px;
+}
+
+textarea:hover, 
+input:hover, 
+textarea:active, 
+input:active, 
+textarea:focus, 
+input:focus,
+button:focus,
+button:active,
+button:hover,
+label:focus,
+.btn:active,
+.btn.active
+{
+    outline:0px !important;
+    -webkit-appearance:none;
+    box-shadow: none !important;
+}
+
+.nav-add{
+    flex-wrap: nowrap;justify-content: flex-start;
+}
+
+.abs-text{
+    margin-right: 0;color:#ED4D77 !important; 
+}
+.text-area-div{
+    padding: 15px !important;
+    text-align: center !important;
+    max-width: 80% !important;
+    margin: 0 auto !important;
+    background-color: #ffff !important;
+    border-radius: 8px !important;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2) !important;
+}
+p.text-c{
+    float: left !important;
+    margin-left: 10px !important;
+    margin-top: 5px !important;
+}
+.area-w{
+    width: 95%; margin: 0 auto;
+}
+.wtx{
+    position: fixed;bottom: 0px;right: 0px;padding: 20px;
+}
+.publi-div{
+    width: 80% !important;margin: 0 auto;
+}
+.btn-publi{
+    border-radius:10px;background: #ED4D77;color:white;
+}
+.search{
+    font-size: 12px;
+}

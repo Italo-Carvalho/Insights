@@ -5,33 +5,32 @@ import json
 class ApiService:
     url = "http://0.0.0.0:8000/api/v1"
     refresh = None
+    email = "test@test.com"
+    password = "test123"
 
-    # def createUser(self, username, password):
-    #     response = requests.post(f"{self.url}/user/",
-    #          data={"username":username, "password":password})
-    #     return response
-
-    def loginUser(self, username, password):
+    def loginUser(self):
         login = requests.post(
             f"{self.url}/token/obtain/",
-            data={"email": "test@test.com", "password": "test123"},
+            data={"email": self.email, "password": "test123"},
         )
         if login.json()["access"]:
             return login.json()["access"]
         return login
 
-    # def accessToken(self, refresh):
+    def accessToken(self, refresh):
 
-    #     if refresh:
-    #         response = requests.post(f"{self.url}/token/refresh/", data={"refresh":refresh})
-    #         if response.status_code == 200:
-    #             return response.json()['access']
-    #     else:
+        if refresh:
+            response = requests.post(
+                f"{self.url}/token/refresh/", data={"refresh": refresh}
+            )
+            if response.status_code == 200:
+                return response.json()["access"]
+        else:
 
-    #         return 'denied'
+            return "denied"
 
-    def getData(self, username, password, page):
-        auth = self.loginUser(username, password)
+    def getData(self, page):
+        auth = self.loginUser()
         if auth != "denied":
             data = requests.get(
                 f"{self.url}/card/?page={page}",
@@ -41,8 +40,8 @@ class ApiService:
             return json.loads(data.content)
         return "denied"
 
-    def createData(self, username, password, texto, tags):
-        auth = self.loginUser(username, password)
+    def createData(self, texto, tags):
+        auth = self.loginUser()
         if auth != "denied":
             return requests.post(
                 f"{self.url}/card/",
@@ -52,7 +51,7 @@ class ApiService:
         return "denied"
 
     def delData(self, username, password, pk):
-        auth = self.loginUser(username, password)
+        auth = self.loginUser()
         if auth != "denied":
             return requests.delete(
                 f"{self.url}/card/{pk}", headers={"Authorization": f"Bearer {auth}"}

@@ -3,7 +3,7 @@ from .api import ApiService
 
 
 def Home(request):
-    data = ApiService().getData("x", "x", 1)
+    data = ApiService().getData(1)
 
     context = {
         "data": data,
