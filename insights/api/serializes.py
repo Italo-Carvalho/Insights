@@ -10,6 +10,15 @@ class TagsSerializer(serializers.ModelSerializer):
 
 
 class CardSerializer(serializers.ModelSerializer):
+
+    tags = serializers.PrimaryKeyRelatedField(many=True, queryset=Tags.objects.all())
+
+    class Meta:
+        model = Card
+        fields = ("id", "texto", "tags", "data_criacao", "data_modificacao")
+
+
+class CardSerializerList(serializers.ModelSerializer):
     tags = TagsSerializer(read_only=True, many=True)
 
     class Meta:

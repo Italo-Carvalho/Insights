@@ -13,7 +13,6 @@ class UserRegistrationAPIViewTestCase(APITestCase):
     url = reverse("api:user")
 
     def test_user_invalid_password(self):
-
         user_data = {
             "email": "test@test.com",
             "password": "",

@@ -5,3 +5,11 @@ omit =
     core*,
     conftest.py,
     *env*,
+
+[report]
+omit =
+    *migrations*,
+    *tests*,
+    core*,
+    conftest.py,
+    *env*,

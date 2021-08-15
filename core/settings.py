@@ -38,6 +38,16 @@ INSTALLED_APPS = [
     "rest_framework",
     "rest_framework.authtoken",
     "drf_yasg",
+    "django_nose",
+]
+
+TEST_RUNNER = "django_nose.NoseTestSuiteRunner"
+
+NOSE_ARGS = [
+    "--with-coverage",
+    "--cover-package=insights",
+    "--cover-html",
+    "--ignore-files=^views\\.",
 ]
 
 REST_FRAMEWORK = {
@@ -56,6 +66,7 @@ SIMPLE_JWT = {
 
 SWAGGER_SETTINGS = {
     "VALIDATOR_URL": None,
+    "USE_SESSION_AUTH": False,
     "SECURITY_DEFINITIONS": {
         "Auth Token | Bearer (JWT)": {
             "type": "apiKey",

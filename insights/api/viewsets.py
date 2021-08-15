@@ -20,15 +20,26 @@ class TagsViewsetsRUD(generics.RetrieveUpdateDestroyAPIView):
 class CardViewsetsLC(generics.ListCreateAPIView):
     queryset = models.Card.objects.all().prefetch_related("tags")
     permission_classes = (IsAuthenticated,)
-    serializer_class = serializes.CardSerializer
     filter_backends = (DjangoFilterBackend,)
     filterset_fields = ("tags",)
 
+    def get_serializer_class(self):
+        if self.request.method == "GET":
+            return serializes.CardSerializerList
+        else:
+            return serializes.CardSerializer
+
 
 class CardViewsetsRUD(generics.RetrieveUpdateDestroyAPIView):
-    queryset = models.Card.objects.all()
+    queryset = models.Card.objects.all().prefetch_related("tags")
     permission_classes = (IsAuthenticated,)
     serializer_class = serializes.CardSerializer
+
+    def get_serializer_class(self):
+        if self.request.method == "GET":
+            return serializes.CardSerializerList
+        else:
+            return serializes.CardSerializer
 
 
 class UserCreateAPIView(generics.CreateAPIView):

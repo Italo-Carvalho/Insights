@@ -8,7 +8,7 @@ schema_view = get_schema_view(
     openapi.Info(
         title="Insights",
         default_version="v1",
-        description="",
+        description="Uma ferramenta para criação de Cards de conteúdo esportivos (Insights).",
         license=openapi.License(name="MIT License"),
     ),
     public=True,

@@ -2,7 +2,7 @@ import json
 from django.urls import reverse
 from rest_framework.test import APITestCase, APIClient
 from ..models import Tags, Card, CustomUser
-from ..api.serializes import TagsSerializer, CardSerializer
+from ..api.serializes import TagsSerializer, CardSerializer, CardSerializerList
 from rest_framework_simplejwt.tokens import RefreshToken
 import pytest
 
@@ -26,6 +26,7 @@ class CardAPIViewTestCase(APITestCase):
         self.user = api_auth_user()
         self.card = Card.objects.create(texto="teste")
         self.card_serializer = CardSerializer(instance=self.card).data
+        self.card_serializer_get = CardSerializerList(instance=self.card).data
 
     def test_card_list_create_api(self):
         # GET/POST
@@ -45,6 +46,7 @@ class CardAPIViewTestCase(APITestCase):
         response_get = self.user.get(url_rud)
         self.assertEqual(response_get.status_code, 200)
         self.assertEqual(json.loads(response_get.content), self.card_serializer)
+        self.assertEqual(json.loads(response_get.content), self.card_serializer_get)
 
         # O PUT, é usado para alteração de um dado completo
         # O PATCH é usado para atualização parcial.
